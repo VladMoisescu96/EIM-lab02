@@ -57,12 +57,54 @@ public class LifecycleMonitorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lifecycle_monitor);
 
+        if (savedInstanceState == null) {
+            Log.d(Constants.TAG, "onCreate() method was invoked without a previous state");
+        } else {
+            Log.d(Constants.TAG, "onCreate() method was invoked with a previous state");
+        }
+
         Button okButton = (Button) findViewById(R.id.ok_button);
         okButton.setOnClickListener(buttonClickListener);
         Button cancelButton = (Button) findViewById(R.id.cancel_button);
         cancelButton.setOnClickListener(buttonClickListener);
 
         Log.d(Constants.TAG, "onCreate() method was invoked without a previous state");
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        Log.d(Constants.TAG, "onRestart() method");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(Constants.TAG, "onStart() method");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(Constants.TAG, "onResume() method");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(Constants.TAG, "onPause() method");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(Constants.TAG, "onStop() method");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(Constants.TAG, "onDestroy() method");
     }
 
 }
